@@ -5,7 +5,10 @@ import ir.fanap.zamiri.project5.data.model.Student;
 import ir.fanap.zamiri.project5.data.modelVO.StudentVO;
 import org.apache.commons.beanutils.BeanUtils;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaQuery;
 import java.io.File;
@@ -18,34 +21,18 @@ public class StudentCRUD {
     public static List<StudentVO> getAll() {
 
         // Zamiri: i wrote this because Criterias are better! but not for this project!
+            //we should use hql i think!
 
-        // Open a session
         Session session = HibernateUtils.SESSION_FACTORY.openSession();
 
-        // Create Criteria
         CriteriaQuery<Student> criteriaQuery = session.getCriteriaBuilder().createQuery(Student.class);
         criteriaQuery.from(Student.class);
-
-        // Get a list of Contact objects according to the Criteria object
         List<Student> students = session.createQuery(criteriaQuery).getResultList();
-        // Close the session
         session.close();
 
         List<StudentVO> studentVOS = new ArrayList<>();
-        StudentVO studentVO = new StudentVO();
-        students.forEach(std -> {
-            try {
-                BeanUtils.copyProperties(studentVO, std);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-            studentVOS.add(studentVO);
-        });
 
-
-        return studentVOS;
+        return studentsToStudentVos(students) ;
     }
 
     public static StudentVO saveStudent(StudentVO studentVO) {
@@ -82,18 +69,73 @@ public class StudentCRUD {
 
     public static File getStudentImage(long sid) {
 
-        return null;
+        return null;//todo
     }
 
     public static StudentVO getStudentById(long sid) {
 
-        return null;
+    //ye rahe dige baraye fetch be joz hql!!
+
+        Student stu = null;
+        Transaction transaction = null;
+        try (Session session = HibernateUtils.SESSION_FACTORY.openSession()) {
+            transaction = session.beginTransaction();
+            stu = (Student) session.get(Student.class,
+                    sid);
+            transaction.commit();
+        } catch (HibernateException ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        StudentVO studentVO = new StudentVO();
+        try {
+            BeanUtils.copyProperties(studentVO,stu);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return studentVO;
     }
 
-    //    public static void addCourse(long sid, long cid /*CourseVO courseVO*/){
-//
-//    }
-    public static List<Long> findStudentByCode(String code) {
-        return null;
+
+    public static List<StudentVO> findStudentByCode(String code) {
+
+        List<Student> students = null;
+        Transaction transaction = null;
+        try (Session session = HibernateUtils.SESSION_FACTORY.openSession()) {
+            transaction = session.beginTransaction();
+            Query query= session.
+                    createQuery("from Student where code=:code");
+            query.setParameter("code", code);
+            students = query.getResultList();
+
+            transaction.commit();
+        } catch (HibernateException ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return studentsToStudentVos(students) ;
+    }
+     static List<StudentVO> studentsToStudentVos (List<Student> students){
+        List<StudentVO> studentVOS = new ArrayList<>();
+        StudentVO studentVO = new StudentVO();
+        students.forEach(std -> {
+            try {
+                BeanUtils.copyProperties(studentVO, std);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+            studentVOS.add(studentVO);
+        });
+
+
+        return studentVOS;
     }
 }
