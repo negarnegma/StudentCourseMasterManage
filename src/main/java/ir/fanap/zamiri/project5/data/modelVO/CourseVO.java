@@ -3,19 +3,20 @@ package ir.fanap.zamiri.project5.data.modelVO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
-public class StudentVO {
 
+@Entity
+public class CourseVO{
     private long id;
     private Date created;
     private Date updated;
 
-    //@JsonProperty("first-name")
-    private String firstName;
+    private String name;
 
-    //@JsonProperty("last-name")
-    private String lastName;
-    private String code;
+    private int unit;
 
     public long getId() {
         return id;
@@ -41,27 +42,21 @@ public class StudentVO {
         this.updated = updated;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public int getUnit() {
+        return unit;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUnit(int unit) {
+        this.unit = unit;
     }
 
-    public String getCode() {
-        return code;
-    }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
 }
