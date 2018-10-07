@@ -1,6 +1,7 @@
 package ir.fanap.zamiri.project5.data.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -50,5 +51,16 @@ public class Course extends BaseEntity{
 
   public void setMasterList(List<Master> masterList) {
     this.masterList = masterList;
+  }
+
+  @OneToMany(mappedBy = "course")
+  private Collection<StudentCourse> studentCourse;
+
+  public Collection<StudentCourse> getStudentCourse() {
+    return studentCourse;
+  }
+
+  public void setStudentCourse(Collection<StudentCourse> studentCourse) {
+    this.studentCourse = studentCourse;
   }
 }
