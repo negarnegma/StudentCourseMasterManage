@@ -45,7 +45,7 @@ public class FindApi {
     }
 
     @POST
-    @Path("/student")
+    @Path("/course")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     public Response findCourse(String name) {

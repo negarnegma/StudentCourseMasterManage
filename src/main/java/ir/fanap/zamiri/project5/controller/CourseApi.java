@@ -62,7 +62,7 @@ public class CourseApi {
         return Response.status(200).entity(CourseCRUD.getCourseMasterScores(cid,mid)).build();
     }
 
-    @GET
+    @POST
     @Path("/{cid}/student/{sid}/score")
     @Consumes(MediaType.TEXT_PLAIN)
     public Response getStudentCourseScore(@PathParam("sid") long sid,@PathParam("cid") long cid, String scoreString) {
