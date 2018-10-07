@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
-@Entity
 public class MasterVO{
     private long id;
     private Date created;

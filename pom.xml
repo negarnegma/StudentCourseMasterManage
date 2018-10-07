@@ -16,6 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <version.jersey>2.20</version.jersey>
   </properties>
 
   <dependencies>
@@ -30,6 +31,51 @@
       <artifactId>hibernate-core</artifactId>
       <version>5.3.6.Final</version>
   </dependency>
+      <dependency>
+          <groupId>javax.transaction</groupId>
+          <artifactId>jta</artifactId>
+          <version>1.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.glassfish.jersey.core</groupId>
+          <artifactId>jersey-server</artifactId>
+          <version>2.20</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.glassfish.jersey.containers</groupId>
+          <artifactId>jersey-container-servlet</artifactId>
+          <version>${version.jersey}</version>
+      </dependency>
+      <!-- do not use jettison, prefer jackson
+      <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-json-jettison</artifactId>
+          <version>${version.jersey}</version>
+      </dependency>
+      -->
+      <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-json-jackson</artifactId>
+          <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-json-processing</artifactId>
+          <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-multipart</artifactId>
+          <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-sse</artifactId>
+          <version>${version.jersey}</version>
+      </dependency>
+
   </dependencies>
 
 

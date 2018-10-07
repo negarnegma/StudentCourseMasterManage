@@ -8,7 +8,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 
-@Entity
 public class CourseVO{
     private long id;
     private Date created;
