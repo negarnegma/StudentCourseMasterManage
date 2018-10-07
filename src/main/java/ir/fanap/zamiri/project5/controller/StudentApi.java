@@ -1,14 +1,13 @@
 package ir.fanap.zamiri.project5.controller;
 
 
+import ir.fanap.zamiri.project5.data.model.StudentCourse;
+import ir.fanap.zamiri.project5.data.modelVO.CourseVO;
 import ir.fanap.zamiri.project5.data.modelVO.StudentVO;
 import ir.fanap.zamiri.project5.data.repository.StudentCRUD;
+import ir.fanap.zamiri.project5.data.repository.StudentCourseCRUD;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -37,6 +36,57 @@ public class StudentApi {
     public Response getStudents() {
         return Response.status(200).entity(StudentCRUD.getAll()).build();
     }
+
+    @GET
+    @Path("/{sid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStudent(@PathParam("sid") long sid) {
+        return Response.status(200).entity(StudentCRUD.getStudentById(sid)).build();
+    }
+
+    @GET
+    @Path("/{sid}/course")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStudentCourses(@PathParam("sid") long sid) {
+        return Response.status(200).entity(StudentCourseCRUD.getStudentCourses(sid)).build();
+    }
+
+    @GET
+    @Path("/{sid}/image")
+    @Produces("image/jpeg")
+    public Response getStudentImage(@PathParam("sid") long sid) {
+        return Response.status(200).entity(StudentCRUD.getStudentImage(sid)).build();
+    }
+
+    @GET
+    @Path("/{sid}/course/{cid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStudentCourse (@PathParam("sid") long sid,@PathParam("cid") long cid) {
+        return Response.status(200).entity(StudentCourseCRUD.getStudentCourse(sid, cid)).build();
+    }
+
+
+    @GET
+    @Path("/{sid}/course/{cid}/score")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response getStudentCourseScore(@PathParam("sid") long sid,@PathParam("cid") long cid) {
+        return Response.status(200).entity(StudentCourseCRUD.getStudentCourseScore(sid,cid)).build();
+    }
+
+    @POST()
+    @Path("/{sid}/course")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addCourseToStudent(@PathParam("sid")long sid, CourseVO courseVO) {
+
+        if (courseVO == null) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        StudentCourseCRUD.addStudentCourse(sid,courseVO);
+
+        return Response.status(201).entity("yep!").build();
+    }
+
 
 
 }
