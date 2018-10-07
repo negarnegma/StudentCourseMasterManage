@@ -4,7 +4,6 @@ import ir.fanap.zamiri.project5.data.HibernateUtils;
 import ir.fanap.zamiri.project5.data.model.Student;
 import ir.fanap.zamiri.project5.data.modelVO.StudentVO;
 import org.apache.commons.beanutils.BeanUtils;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -29,8 +28,6 @@ public class StudentCRUD {
         criteriaQuery.from(Student.class);
         List<Student> students = session.createQuery(criteriaQuery).getResultList();
         session.close();
-
-        List<StudentVO> studentVOS = new ArrayList<>();
 
         return studentsToStudentVos(students) ;
     }
