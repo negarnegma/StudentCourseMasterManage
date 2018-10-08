@@ -54,9 +54,7 @@ public class StudentCRUD {
 
         try {
             BeanUtils.copyProperties(studentVO,student);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
 
@@ -89,9 +87,7 @@ public class StudentCRUD {
         StudentVO studentVO = new StudentVO();
         try {
             BeanUtils.copyProperties(studentVO,stu);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
         return studentVO;
@@ -118,15 +114,15 @@ public class StudentCRUD {
         }
         return studentsToStudentVos(students) ;
     }
-     static List<StudentVO> studentsToStudentVos (List<Student> students){
+     private static List<StudentVO> studentsToStudentVos(List<Student> students){
         List<StudentVO> studentVOS = new ArrayList<>();
         StudentVO studentVO = new StudentVO();
+        if(students == null)
+            return null;
         students.forEach(std -> {
             try {
                 BeanUtils.copyProperties(studentVO, std);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
+            } catch (IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
             studentVOS.add(studentVO);

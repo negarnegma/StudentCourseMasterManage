@@ -49,7 +49,7 @@ public class CourseCRUD {
     public static List<Long> findCourseByName (String name){
         return null;
     }
-    static List<CourseVO> coursesToCoursesVos (List<Course> courses){
+    private static List<CourseVO> coursesToCoursesVos(List<Course> courses){
         List<CourseVO> courseVOS = new ArrayList<>();
         CourseVO courseVO = new CourseVO();
         courses.forEach(crs -> {

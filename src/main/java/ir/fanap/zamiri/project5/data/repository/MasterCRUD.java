@@ -53,7 +53,7 @@ public class MasterCRUD {
         return null;
     }
 
-    static List<MasterVO> mastersToMastersVos (List<Master> master){
+    private static List<MasterVO> mastersToMastersVos(List<Master> master){
         List<MasterVO> masterVOS = new ArrayList<>();
         MasterVO masterVO = new MasterVO();
         master.forEach(mstr -> {
