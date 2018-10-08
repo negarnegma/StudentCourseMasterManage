@@ -14,6 +14,19 @@ public class StudentCourse extends BaseEntity{
 
   private float score;
 
+//  @ManyToOne
+//  private Master master;
+
+  public long getMasterId() {
+    return masterId;
+  }
+
+  public void setMasterId(long masterId) {
+    this.masterId = masterId;
+  }
+
+  private long masterId;
+
   public Student getStudent() {
     return student;
   }

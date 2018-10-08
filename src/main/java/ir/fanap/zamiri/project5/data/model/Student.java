@@ -10,6 +10,8 @@ public class Student extends BaseEntity{
     private String firstName;
     private String lastName;
     private String code;
+    @OneToMany
+    private List<StudentCourse> courseList;
 
     public String getFirstName() {
         return firstName;
@@ -43,6 +45,5 @@ public class Student extends BaseEntity{
         this.courseList = courseList;
     }
 
-    @OneToMany
-    private List<StudentCourse> courseList;
+
 }

@@ -52,15 +52,4 @@ public class Course extends BaseEntity{
   public void setMasterList(List<Master> masterList) {
     this.masterList = masterList;
   }
-
-  @OneToMany(mappedBy = "course")
-  private Collection<StudentCourse> studentCourse;
-
-  public Collection<StudentCourse> getStudentCourse() {
-    return studentCourse;
-  }
-
-  public void setStudentCourse(Collection<StudentCourse> studentCourse) {
-    this.studentCourse = studentCourse;
-  }
 }

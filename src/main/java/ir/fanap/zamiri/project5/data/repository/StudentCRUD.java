@@ -114,7 +114,7 @@ public class StudentCRUD {
         }
         return studentsToStudentVos(students) ;
     }
-     private static List<StudentVO> studentsToStudentVos(List<Student> students){
+    static List<StudentVO> studentsToStudentVos(List<Student> students){
         List<StudentVO> studentVOS = new ArrayList<>();
         StudentVO studentVO = new StudentVO();
         if(students == null)

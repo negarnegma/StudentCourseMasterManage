@@ -29,6 +29,7 @@ public class CourseCRUD {
 
         return coursesToCoursesVos(courses) ;
     }
+
     public static CourseVO saveCourse(CourseVO courseVO){
         return courseVO;
     }
@@ -42,16 +43,21 @@ public class CourseCRUD {
 
         return null;
     }
+
     public static List<Float> getCourseMasterScores(long cid,long mid){
 
         return null;
     }
+
     public static List<Long> findCourseByName (String name){
         return null;
     }
-    private static List<CourseVO> coursesToCoursesVos(List<Course> courses){
+
+    static List<CourseVO> coursesToCoursesVos(List<Course> courses){
         List<CourseVO> courseVOS = new ArrayList<>();
         CourseVO courseVO = new CourseVO();
+        if (courses == null)
+            return null;
         courses.forEach(crs -> {
             try {
                 BeanUtils.copyProperties(courseVO, crs);
