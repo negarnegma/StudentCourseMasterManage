@@ -78,10 +78,11 @@ public class StudentApi {
         if (cidmid == null) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
+
         try {
             StudentCourseCRUD.addStudentCourse(sid,cidmid.get(0),cidmid.get(1));
-        } catch (Exceptions.notMasterInList notMasterInList) {
-            return Response.status(404).entity(notMasterInList.getMessage()).build();
+        } catch (Exceptions.NotMasterInList | Exceptions.NotFound e) {
+            return Response.status(404).entity(e.getMessage()).build();
         }
 
         return Response.status(201).entity("yep!").build();

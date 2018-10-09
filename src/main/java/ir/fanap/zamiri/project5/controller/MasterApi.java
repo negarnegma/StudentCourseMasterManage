@@ -1,5 +1,6 @@
 package ir.fanap.zamiri.project5.controller;
 
+import ir.fanap.zamiri.project5.Exceptions;
 import ir.fanap.zamiri.project5.data.model.Master;
 import ir.fanap.zamiri.project5.data.modelVO.CourseVO;
 import ir.fanap.zamiri.project5.data.modelVO.MasterVO;
@@ -56,7 +57,7 @@ public class MasterApi {
     }
 
     @GET
-    @Path("/{mid}/master")
+    @Path("/{mid}/course")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMasterCourses(@PathParam("mid") long mid) {
         return Response.status(200).entity(MasterCRUD.getMasterCourses(mid)).build();
@@ -65,13 +66,17 @@ public class MasterApi {
     @POST()
     @Path("/{mid}/course")
     @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response addCourseToStudent(@PathParam("mid")long mid,long cid) {
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response addCourseToMaster(@PathParam("mid")long mid,long cid) {
 
         if (cid == 0) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        MasterCRUD.addCourse(mid,cid);
+        try {
+            MasterCRUD.addCourse(mid,cid);
+        } catch (Exceptions.NotFound notFound) {
+            return Response.status(404).entity(notFound.getMessage()).build();
+        }
 
         return Response.status(201).entity("yep!").build();
     }

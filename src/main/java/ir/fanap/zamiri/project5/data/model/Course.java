@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -18,7 +19,7 @@ public class Course extends BaseEntity{
   @OneToMany
   private List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   private List<Master> masterList = new ArrayList<Master>(  );
 
   public String getName() {

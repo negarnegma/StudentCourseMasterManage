@@ -2,12 +2,10 @@ package ir.fanap.zamiri.project5.data.repository;
 
 import ir.fanap.zamiri.project5.Exceptions;
 import ir.fanap.zamiri.project5.data.HibernateUtils;
-import ir.fanap.zamiri.project5.data.model.Course;
-import ir.fanap.zamiri.project5.data.model.Master;
-import ir.fanap.zamiri.project5.data.model.Student;
-import ir.fanap.zamiri.project5.data.model.StudentCourse;
+import ir.fanap.zamiri.project5.data.model.*;
 import ir.fanap.zamiri.project5.data.modelVO.CourseVO;
 import ir.fanap.zamiri.project5.data.modelVO.StudentVO;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -151,12 +149,40 @@ public class StudentCourseCRUD {
 
     }
 
-    public static void addStudentCourse(long sid, long cid, long mid) throws Exceptions.notMasterInList {
+    public static void addStudentCourse(long sid, long cid, long mid) throws Exceptions.NotMasterInList, Exceptions.NotFound {
 
-        Course course = CourseCRUD.getCourseByIdnotVO(cid);
-        Master master = MasterCRUD.getMasterByIdnotVO(mid);
-        if (! course.getMasterList().contains(master))
-            throw new Exceptions.notMasterInList("this courrse is not eraee n by this master!");
+        Course course   = CourseCRUD.getCourseByIdnotVO(cid)  ;
+        Master master   = MasterCRUD.getMasterByIdnotVO(mid)  ;
+        Student student = StudentCRUD.getStudentByIdnotVO(sid);
+
+        if (master == null)  throw new Exceptions.NotFound("master not found");
+        if (course == null)  throw new Exceptions.NotFound("course not found");
+        if (student == null) throw new Exceptions.NotFound("student not found");
+
+
+       // if (course.getMasterList().contains(master)) { : logic errr
+        List<Long> mids = course.getMasterList().stream().map(BaseEntity::getId).collect(Collectors.toList());
+        if (mids.contains(mid)) {
+            Session session = HibernateUtils.SESSION_FACTORY.openSession();
+            course = (Course) session.get(Course.class,
+                    cid);
+//            Hibernate.initialize(student.getCourseList());
+            StudentCourse sc = new StudentCourse();
+                sc.setCourse(course);
+                sc.setMasterId(mid);
+                sc.setStudent(student);
+//                student.getCourseList().add(sc);
+                course.getStudentCourses().add(sc);
+
+                session.beginTransaction();
+                    session.save(sc);
+                    session.update(student);
+                    session.update(course);
+                session.getTransaction().commit();
+                session.close();
+        } else {
+            throw new Exceptions.NotMasterInList("this course is not eraee n by this master!");
+        }
 
     }
 

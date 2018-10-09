@@ -1,5 +1,6 @@
 package ir.fanap.zamiri.project5.data.repository;
 
+import ir.fanap.zamiri.project5.Exceptions;
 import ir.fanap.zamiri.project5.data.HibernateUtils;
 import ir.fanap.zamiri.project5.data.model.Course;
 import ir.fanap.zamiri.project5.data.model.Master;
@@ -135,13 +136,13 @@ public class MasterCRUD {
 
     }
 
-    public static void addCourse(long mid, long cid /*CourseVO courseVO*/){
+    public static void addCourse(long mid, long cid /*CourseVO courseVO*/) throws Exceptions.NotFound {
 
         Master master = getMasterByIdnotVO(mid);
         Course course = getCourseByIdnotVO(cid);
 
-        if (master == null) return;
-        if (course == null) return;
+        if (master == null) throw new Exceptions.NotFound("master not found");
+        if (course == null) throw new Exceptions.NotFound("course not found");
 
         master.getCourseList().add(course);
         course.getMasterList().add(master);
@@ -149,13 +150,41 @@ public class MasterCRUD {
         Session session = HibernateUtils.SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
-        session.save(master);
-        session.save(course);
+
+        session.update(master);
+        session.update(course);
 
         transaction.commit();
         session.close();
 
+ /*       Master master = getMasterByIdnotVO(mid);
+        Course course = getCourseByIdnotVO(cid);
 
+        if (master == null) throw new Exceptions.notFound("master not found");
+        if (course == null) throw new Exceptions.notFound("course not found");
+
+        Transaction transaction = null;
+        try (Session session = HibernateUtils.SESSION_FACTORY.openSession()) {
+            transaction = session.beginTransaction();
+            master = (Master) session.get(Master.class,
+                    mid);
+            course = (Course) session.get(Course.class,
+                    cid);
+
+            master.getCourseList().add(course);
+            course.getMasterList().add(master);
+
+            session.update(master);
+            session.update(course);
+
+            transaction.commit();
+        } catch (HibernateException ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+     */
     }
 
     public static MasterVO getMasterById (long mid){
