@@ -57,5 +57,14 @@ public class CourseVO{
         this.unit = unit;
     }
 
-
+    @Override
+    public String toString() {
+        return "CourseVO{" +
+                "id=" + id +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", name='" + name + '\'' +
+                ", unit=" + unit +
+                '}';
+    }
 }

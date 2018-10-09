@@ -114,7 +114,7 @@ public class StudentCRUD {
         }
         return studentsToStudentVos(students) ;
     }
-    static List<StudentVO> studentsToStudentVos(List<Student> students){
+    public static List<StudentVO> studentsToStudentVos(List<Student> students){
         List<StudentVO> studentVOS = new ArrayList<>();
         StudentVO studentVO = new StudentVO();
         if(students == null)
@@ -130,5 +130,25 @@ public class StudentCRUD {
 
 
         return studentVOS;
+    }
+
+    public static Student getStudentByIdnotVO(long sid) {
+
+        //ye rahe dige baraye fetch be joz hql!!
+
+        Student stu = null;
+        Transaction transaction = null;
+        try (Session session = HibernateUtils.SESSION_FACTORY.openSession()) {
+            transaction = session.beginTransaction();
+            stu = (Student) session.get(Student.class,
+                    sid);
+            transaction.commit();
+        } catch (HibernateException ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return stu;
     }
 }

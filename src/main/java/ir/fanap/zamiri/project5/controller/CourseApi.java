@@ -45,7 +45,7 @@ public class CourseApi {
     @Path("/{cid}/student")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCourseStudents(@PathParam("cid") long cid) {
-        return Response.status(200).entity(StudentCourseCRUD.getCorseStudents(cid)).build();
+        return Response.status(200).entity(StudentCourseCRUD.getCourseStudents(cid)).build();
     }
 
     @GET

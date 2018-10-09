@@ -11,6 +11,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import static ir.fanap.zamiri.project5.data.repository.StudentCRUD.studentsToStudentVos;
+
 /**
  * Created by NZamiri
  */
@@ -48,7 +50,9 @@ public class MasterApi {
     @Path("/{mid}/student")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMasterStudents(@PathParam("mid") long mid) {
-        return Response.status(200).entity(MasterCRUD.getMasterStudents(mid)).build();
+        return Response.status(200).entity(
+                studentsToStudentVos(MasterCRUD.getMasterStudents(mid))
+        ).build();
     }
 
     @GET

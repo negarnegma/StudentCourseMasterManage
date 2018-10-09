@@ -1,6 +1,7 @@
 package ir.fanap.zamiri.project5.controller;
 
 
+import ir.fanap.zamiri.project5.Exceptions;
 import ir.fanap.zamiri.project5.data.model.StudentCourse;
 import ir.fanap.zamiri.project5.data.modelVO.CourseVO;
 import ir.fanap.zamiri.project5.data.modelVO.StudentVO;
@@ -10,6 +11,7 @@ import ir.fanap.zamiri.project5.data.repository.StudentCourseCRUD;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 
 /**
  * Created by NZamiri
@@ -58,12 +60,6 @@ public class StudentApi {
         return Response.status(200).entity(StudentCRUD.getStudentImage(sid)).build();
     }
 
-    @GET
-    @Path("/{sid}/course/{cid}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getStudentCourse (@PathParam("sid") long sid,@PathParam("cid") long cid) {
-        return Response.status(200).entity(StudentCourseCRUD.getStudentCourse(sid, cid)).build();
-    }
 
 
     @GET
@@ -74,15 +70,19 @@ public class StudentApi {
     }
 
     @POST()
-    @Path("/{sid}/course")
+    @Path("/{sid}/addCourse")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addCourseToStudent(@PathParam("sid")long sid, CourseVO courseVO) {
+    public Response addCourseToStudent(@PathParam("sid")long sid, ArrayList<Long> cidmid) {
 
-        if (courseVO == null) {
+        if (cidmid == null) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        StudentCourseCRUD.addStudentCourse(sid,courseVO);
+        try {
+            StudentCourseCRUD.addStudentCourse(sid,cidmid.get(0),cidmid.get(1));
+        } catch (Exceptions.notMasterInList notMasterInList) {
+            return Response.status(404).entity(notMasterInList.getMessage()).build();
+        }
 
         return Response.status(201).entity("yep!").build();
     }
