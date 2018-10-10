@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class StudentApi {
 
     @POST
-    @RolesAllowed("ADMIN")
+//    @RolesAllowed("ADMIN")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addStudent(StudentVO studentVO) {
@@ -73,7 +73,7 @@ public class StudentApi {
 
 
     @GET
-    @RolesAllowed({"STUDENT","ADMIN","MASTER"})
+//    @RolesAllowed({"STUDENT","ADMIN","MASTER"})
     @Path("/{sid}/course/{cid}/score")
     @Produces(MediaType.TEXT_PLAIN)
     public Response getStudentCourseScore(@PathParam("sid") long sid,@PathParam("cid") long cid) {
@@ -81,7 +81,7 @@ public class StudentApi {
     }
 
     @POST()
-    @RolesAllowed("ADMIN")
+//    @RolesAllowed("ADMIN")
     @Path("/{sid}/addCourse")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

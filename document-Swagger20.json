@@ -21,7 +21,7 @@
     "/master": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get masters list",
+        "summary": "MasterGet",
         "tags": [
           "get list"
         ],
@@ -38,7 +38,7 @@
       },
       "post": {
         "description": "TODO: Add Description",
-        "summary": "add master",
+        "summary": "MasterPost",
         "tags": [
           "add"
         ],
@@ -74,7 +74,7 @@
     "/course": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get courses list",
+        "summary": "CourseGet",
         "tags": [
           "get list"
         ],
@@ -91,7 +91,7 @@
       },
       "post": {
         "description": "TODO: Add Description",
-        "summary": "add course",
+        "summary": "CoursePost",
         "tags": [
           "add"
         ],
@@ -127,7 +127,7 @@
     "/student": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get  students list",
+        "summary": "StudentGet",
         "tags": [
           "get list"
         ],
@@ -144,7 +144,7 @@
       },
       "post": {
         "description": "TODO: Add Description",
-        "summary": "add student",
+        "summary": "StudentPost",
         "tags": [
           "add"
         ],
@@ -180,7 +180,7 @@
     "/master/1/student": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get master students",
+        "summary": "Master1StudentGet",
         "tags": [
           "get list"
         ],
@@ -199,7 +199,7 @@
     "/master/1/course": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get master courses",
+        "summary": "Master1CourseGet",
         "tags": [
           "get list"
         ],
@@ -216,7 +216,7 @@
       },
       "post": {
         "description": "TODO: Add Description",
-        "summary": "add course 2 master",
+        "summary": "Master1CoursePost",
         "tags": [
           "entekhab vahed"
         ],
@@ -252,7 +252,7 @@
     "/course/2/master": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get course masters",
+        "summary": "Course2MasterGet",
         "tags": [
           "get list"
         ],
@@ -271,7 +271,7 @@
     "/course/2/student": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get course students",
+        "summary": "Course2StudentGet",
         "tags": [
           "get list"
         ],
@@ -290,7 +290,7 @@
     "/student/3/course": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get student courses",
+        "summary": "Student3CourseGet",
         "tags": [
           "get list"
         ],
@@ -309,7 +309,7 @@
     "/find/course": {
       "post": {
         "description": "TODO: Add Description",
-        "summary": "find course id by name",
+        "summary": "FindCoursePost",
         "tags": [
           "search"
         ],
@@ -345,7 +345,7 @@
     "/find/master": {
       "post": {
         "description": "TODO: Add Description",
-        "summary": "find master id by name",
+        "summary": "FindMasterPost",
         "tags": [
           "search"
         ],
@@ -381,7 +381,7 @@
     "/find/student": {
       "post": {
         "description": "TODO: Add Description",
-        "summary": "find a student by code",
+        "summary": "FindStudentPost",
         "tags": [
           "search"
         ],
@@ -417,11 +417,11 @@
     "/student/3/addCourse": {
       "post": {
         "description": "TODO: Add Description",
-        "summary": "add  eraee nashode course 2 student",
+        "summary": "Student3AddCoursePost2",
         "tags": [
           "entekhab vahed"
         ],
-        "operationId": "Student3AddCoursePost2",
+        "operationId": "Student3AddCoursePost",
         "produces": [
           "application/json"
         ],
@@ -457,7 +457,7 @@
     "/student/3": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get  student",
+        "summary": "Student3Get",
         "tags": [
           "get informations"
         ],
@@ -476,7 +476,7 @@
     "/student/3/image": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get  student image",
+        "summary": "Student3ImageGet",
         "tags": [
           "get informations"
         ],
@@ -495,7 +495,7 @@
     "/master/1": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get  master",
+        "summary": "Master1Get",
         "tags": [
           "get informations"
         ],
@@ -514,7 +514,7 @@
     "/course/34": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get  course",
+        "summary": "Course34Get",
         "tags": [
           "get informations"
         ],
@@ -533,7 +533,7 @@
     "/student/3/course/2/score": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get  studentcourse score",
+        "summary": "Student3Course2ScoreGet",
         "tags": [
           "get informations"
         ],
@@ -552,7 +552,7 @@
     "/course/2/master/1/score": {
       "get": {
         "description": "TODO: Add Description",
-        "summary": "get  course scores",
+        "summary": "Course2Master1ScoreGet",
         "tags": [
           "get informations"
         ],

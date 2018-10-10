@@ -674,6 +674,42 @@
 					"response": []
 				},
 				{
+					"name": "changestudentcourse score",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "11"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/course/2/student/3/score",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"course",
+								"2",
+								"student",
+								"3",
+								"score"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "get  course scores",
 					"request": {
 						"method": "GET",
