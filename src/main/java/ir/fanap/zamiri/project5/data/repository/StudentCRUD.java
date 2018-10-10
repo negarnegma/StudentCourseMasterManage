@@ -62,9 +62,14 @@ public class StudentCRUD {
         return studentVO;
     }
 
-    public static File getStudentImage(long sid) {
+    public static byte[] getStudentImage(long sid) {
 
         return null;//todo
+    }
+
+    public static byte[] setStudentImage(long sid,byte[] imageBytes) {
+
+        return imageBytes;//todo
     }
 
     public static StudentVO getStudentById(long sid) {

@@ -1,0 +1,730 @@
+{
+	"info": {
+		"_postman_id": "c82c4e60-7011-4594-ba0a-4ea5d612a477",
+		"name": "schoolmanagement",
+		"description": "My Fanap course finel project.\nCodes are available here:\nhttps://github.com/negarnegma/studentcoursemastermanage\n\nuse environment variables to obtain a sample token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add",
+			"item": [
+				{
+					"name": "add master",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"pourreza\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/master",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"physics\",\n\t\"unit\":\"3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"negar\",\n\t\"lastName\": \"the-last-name\",\n\t\"code\" : \"95xxx\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get list",
+			"item": [
+				{
+					"name": "get  students list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get masters list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/master",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get courses list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get master students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/master/1/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"master",
+								"1",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get master courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/master/1/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"master",
+								"1",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get course masters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/course/2/master",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"course",
+								"2",
+								"master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get course students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/course/2/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"course",
+								"2",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student/3/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student",
+								"3",
+								"course"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "find course id by name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "physics"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/find/course/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"find",
+								"course",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find master id by name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "pourreza"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/find/master/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"find",
+								"master",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find a student by code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "95xxx"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/find/student/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"find",
+								"student",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "entekhab vahed",
+			"item": [
+				{
+					"name": "add course 2 master",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "2"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/master/1/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"master",
+								"1",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add  eraee shode course 2 student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t2,\n\t1\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student/3/addCourse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student",
+								"3",
+								"addCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add  eraee nashode course 2 student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t34,\n\t1\n\t]"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student/3/addCourse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student",
+								"3",
+								"addCourse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get informations",
+			"item": [
+				{
+					"name": "get  student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  student image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student/3/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student",
+								"3",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  master",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/master/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"master",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/course/34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"course",
+								"34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  studentcourse score",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/student/3/course/2/score",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"student",
+								"3",
+								"course",
+								"2",
+								"score"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  course scores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v0/course/2/master/1/score",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v0",
+								"course",
+								"2",
+								"master",
+								"1",
+								"score"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5eabfb90-c269-45b1-bc8d-f48fb2affdcd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fe1d1e94-f72e-4408-a3cb-eb91b4a380ed",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

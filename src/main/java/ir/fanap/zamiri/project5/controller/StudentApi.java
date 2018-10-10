@@ -8,6 +8,7 @@ import ir.fanap.zamiri.project5.data.modelVO.StudentVO;
 import ir.fanap.zamiri.project5.data.repository.StudentCRUD;
 import ir.fanap.zamiri.project5.data.repository.StudentCourseCRUD;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 public class StudentApi {
 
     @POST
+    @RolesAllowed("ADMIN")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addStudent(StudentVO studentVO) {
@@ -34,6 +36,7 @@ public class StudentApi {
     }
 
     @GET
+
     @Produces(MediaType.APPLICATION_JSON)
     public Response getStudents() {
         return Response.status(200).entity(StudentCRUD.getAll()).build();
@@ -55,14 +58,22 @@ public class StudentApi {
 
     @GET
     @Path("/{sid}/image")
-    @Produces("image/jpeg")
+    @Produces({ "image/jpg", "image/png" })
     public Response getStudentImage(@PathParam("sid") long sid) {
         return Response.status(200).entity(StudentCRUD.getStudentImage(sid)).build();
     }
 
+    @GET
+    @Path("/{sid}/image")
+    @Produces({ "image/jpg", "image/png" })
+    @Consumes({ "image/jpg", "image/png" })
+    public Response settStudentImage(@PathParam("sid") long sid,byte[] imageBytes) {
+        return Response.status(200).entity(StudentCRUD.setStudentImage(sid,imageBytes)).build();
+    }
 
 
     @GET
+    @RolesAllowed({"STUDENT","ADMIN","MASTER"})
     @Path("/{sid}/course/{cid}/score")
     @Produces(MediaType.TEXT_PLAIN)
     public Response getStudentCourseScore(@PathParam("sid") long sid,@PathParam("cid") long cid) {
@@ -70,6 +81,7 @@ public class StudentApi {
     }
 
     @POST()
+    @RolesAllowed("ADMIN")
     @Path("/{sid}/addCourse")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

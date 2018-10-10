@@ -1,0 +1,663 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "schoolmanagement",
+    "description": "My Fanap course finel project.\nCodes are available here:\nhttps://github.com/negarnegma/studentcoursemastermanage\n\nuse environment variables to obtain a sample token",
+    "contact": {}
+  },
+  "host": "localhost:8080",
+  "basePath": "/api/v0",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/master": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get masters list",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "MasterGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "add master",
+        "tags": [
+          "add"
+        ],
+        "operationId": "MasterPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddMasterrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/course": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get courses list",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "CourseGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "add course",
+        "tags": [
+          "add"
+        ],
+        "operationId": "CoursePost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddCourserequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/student": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get  students list",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "StudentGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "add student",
+        "tags": [
+          "add"
+        ],
+        "operationId": "StudentPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddStudentrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/master/1/student": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get master students",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "Master1StudentGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/master/1/course": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get master courses",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "Master1CourseGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "add course 2 master",
+        "tags": [
+          "entekhab vahed"
+        ],
+        "operationId": "Master1CoursePost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/course/2/master": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get course masters",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "Course2MasterGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/course/2/student": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get course students",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "Course2StudentGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/student/3/course": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get student courses",
+        "tags": [
+          "get list"
+        ],
+        "operationId": "Student3CourseGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/find/course": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "find course id by name",
+        "tags": [
+          "search"
+        ],
+        "operationId": "FindCoursePost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/find/master": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "find master id by name",
+        "tags": [
+          "search"
+        ],
+        "operationId": "FindMasterPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/find/student": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "find a student by code",
+        "tags": [
+          "search"
+        ],
+        "operationId": "FindStudentPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/student/3/addCourse": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "add  eraee nashode course 2 student",
+        "tags": [
+          "entekhab vahed"
+        ],
+        "operationId": "Student3AddCoursePost2",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/student/3": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get  student",
+        "tags": [
+          "get informations"
+        ],
+        "operationId": "Student3Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/student/3/image": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get  student image",
+        "tags": [
+          "get informations"
+        ],
+        "operationId": "Student3ImageGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/master/1": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get  master",
+        "tags": [
+          "get informations"
+        ],
+        "operationId": "Master1Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/course/34": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get  course",
+        "tags": [
+          "get informations"
+        ],
+        "operationId": "Course34Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/student/3/course/2/score": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get  studentcourse score",
+        "tags": [
+          "get informations"
+        ],
+        "operationId": "Student3Course2ScoreGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/course/2/master/1/score": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get  course scores",
+        "tags": [
+          "get informations"
+        ],
+        "operationId": "Course2Master1ScoreGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddMasterrequest": {
+      "title": "add masterRequest",
+      "example": {
+        "name": "pourreza"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "example": "pourreza",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "AddCourserequest": {
+      "title": "add courseRequest",
+      "example": {
+        "name": "physics",
+        "unit": "3"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "example": "physics",
+          "type": "string"
+        },
+        "unit": {
+          "description": "",
+          "example": "3",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "unit"
+      ]
+    },
+    "AddStudentrequest": {
+      "title": "add studentRequest",
+      "example": {
+        "firstName": "negar",
+        "lastName": "the-last-name",
+        "code": "95xxx"
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "description": "",
+          "example": "negar",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "",
+          "example": "the-last-name",
+          "type": "string"
+        },
+        "code": {
+          "description": "",
+          "example": "95xxx",
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "code"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "add"
+    },
+    {
+      "name": "get list"
+    },
+    {
+      "name": "search"
+    },
+    {
+      "name": "entekhab vahed"
+    },
+    {
+      "name": "get informations"
+    }
+  ]
+}
